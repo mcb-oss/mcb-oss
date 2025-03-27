@@ -138,3 +138,6 @@ mutable_data = bytearray(b"hello")
 print(mutable_data)
 mutable_data[0] = 72  # 修改第一个字节为 'H'
 print(mutable_data)
+
+# 三目表达式  value_if_true if condition else value_if_false
+print("是的" if True else "不是")
