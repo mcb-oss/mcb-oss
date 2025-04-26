@@ -26,9 +26,10 @@ print(tList[-10:])
 ll = tList[:10:2]
 print(ll)
 
-tList.append(101111)
-# 复制一份list地址，会随着原list改变
+
+# 复制一份list地址，不改变原list
 copyList = tList[:]
+tList.append(101111)
 print("copyList:", copyList)
 
 # 字符串也可以看成一个列表
@@ -67,3 +68,10 @@ elif trim("    ") != "":
     print("测试失败!")
 else:
     print("测试成功!")
+
+
+
+
+mtest = "你好呀"
+print(list(range(len(mtest), -2, -1)))  # 输出: [3, 2, 1, 0, -1]
+# start 开始（包含），end 解释（不包含）start == end 才能结束，step 步长 

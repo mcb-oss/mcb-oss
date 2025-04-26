@@ -56,11 +56,17 @@ for l in L:
 for index, value in enumerate(L):
     print(index, ":", value)
 
+
+
+
 print("----tuple不变集合-----")
 # tuple 不可变数组
 classmates = ("Michael", "Bob", "Tracy")
 # 只有1个元素的tuple定义时必须加一个逗号,避免以为是1
 t = (1,)
+
+print("count",t.count(1))
+print("len",len(t))
 
 
 # ------判断--------
@@ -68,6 +74,10 @@ t = (1,)
 if t:
     print("True")
 
+
+
+
+print("---- match -----")
 
 age = 15
 
@@ -105,27 +115,86 @@ while n > 0:
 print(sum)
 
 # ---disc（map）---
+print("-----disc（map）---")
 d = {"Michael": 95, "Bob": 75, "Tracy": 85}
-print(d["Michael"])
+
+# put：
 # 可以放!不同类型
 d[1] = 100
-print("disc（map）", d)
-# getordefault()
-print(d.get("mcb", 10000))
+# 如果键存在，返回其值，如果键不存在，插入键并设置默认值，然后返回默认值
+d.setdefault("Bob", "bingbing") 
 
+print("disc（map）", d)
+
+# get：
+print(d.get("mcb", 10000))
+print(d["Michael"])
+
+#del:
+#删除的key必须是包含的，不然会抛出keyerror
+del d["Tracy"]
+print("after del",d)
+
+#pop:
+#移除并返回移除的值，如果键不存在字典中则返回默认值，没有提供默认值则会抛出keyerror
+d["test"] = 100
+a = d.pop("test")
+print("pop value",a)
+#提供默认值
+result = d.pop("aaaaa","not found")
+print("pop has default:",result)
+
+#clear:
+d.clear()
+print("after  clear",d)
+
+
+# 常规使用
+info = {"name":"bingbing","age":18}
+print("name" in info) #字典中是否包含对应key，containKey同理
+print("name" not in info)
+
+print(len(info)) #键值对个数
+
+# 键值对遍历
+for key, value in info.items():
+    print(key, value)   
 
 # --------- set集合
+print("-----set---")
 s = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 print(type(s))
 
+#add;
+s.update({11,12,13})
+print("after update",s)
+
+#remove: 有则删除，不存在则报错
+a = s.remove(1)
+print("remove",a)
+
+#discard: 有则删除，不存在则不报错
+a = s.discard(15)
+print("discard",a)
+
+#交集
+s1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+s2 = {6, 7, 8, 9, 10}
+print("交集",s1 & s2)
+print("交集",s1.intersection(s2))
+
+#并集
+s3 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+s4 = {6, 7, 8, 9, 10}
+print("并集",s3 | s4)
+print("并集",s3.union(s4))
 
 # 支持将list作为入参
 forList = set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-print(type(forList), forList)
+print("forList",forList)
 
 
-s1 = {1, 1, 2, 2, 3, 3}
-print(s1)
+print("-------bytes和bytearray---------")
 
 # 字节!串（bytes） 表示不可变的字节序列，通常用于处理二进制数据。
 data = b"hello"
@@ -141,3 +210,5 @@ print(mutable_data)
 
 # 三目表达式  value_if_true if condition else value_if_false
 print("是的" if True else "不是")
+
+print("y" if True else "n")
